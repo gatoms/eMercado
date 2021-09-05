@@ -40,8 +40,21 @@ var getJSONData = function(url){
     });
 }
 
+function llamado(){
+  if(localStorage.getItem('losDatos')){
+    elJson=localStorage.getItem('losDatos');
+    losDatos=JSON.parse(elJson);
+    document.getElementById('cabeza').innerHTML+='<a id="perfil" class="py-2 d-none d-md-inline-block blanco" href="my-profile.html">Perfil: '+losDatos.dato1+'</a>' 
+  }else{
+    window.location.replace('login.html')
+  };
+};
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  if((window.location.href).includes('login.html') != true){
+    llamado()
+  }
 });

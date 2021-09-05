@@ -15,7 +15,7 @@
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <div id='cabeza' class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -24,6 +24,18 @@
       </div>
     </nav>
     <h2 class='text-center p-4'>Productos</h2>
+    <div class="text-center p-3">
+      <input type="text" id='buscar' placeholder="Buscar" class="btn btn-light">
+      <br><br>
+      <input type="number" placeholder="Precio minimo" id='min' class="btn btn-light">
+      <input type="number" placeholder="Precio maximo" id='max' class="btn btn-light">
+      <button id='filtrado' class="btn btn-light">Filtrar</button>
+      <button id="limpiar" class="btn btn-light">Limpiar Filtros</button>
+      <br><br>
+      <button id='mayMen' class="btn btn-light">Mayor a Menor</button>
+      <button id="menMay" class="btn btn-light">Menor a Mayor</button>
+      <button id='relevancia' class="btn btn-light">Relevancia</button>
+    </div>
     <div id='prod' class='productitos'>
       
     </div>

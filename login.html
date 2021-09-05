@@ -7,15 +7,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script>
+    function estorage(){
+        let misDatos= {
+            dato1: document.getElementById('inputEmail').value,
+            dato2: document.getElementById('inputPassword').value
+        };
+
+        let elJson= JSON.stringify(misDatos);
+
+        localStorage.setItem('losDatos', elJson);
+    }
+  </script>
   <style>
     html, body{
       height: 100%;
+    }
+
+    img{
+      width: 100%;
+    }
+
+    .email{
+      margin-bottom: -1px;
+      position: relative;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .pass{
+      margin-bottom: 10px;
     }
 
     body {
@@ -28,26 +56,43 @@
       background-color: #f5f5f5;
     }
 
+    .imgBack{
+      background-image: url(img/cover_back.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+
     .signin {
       width: 100%;
       max-width: 330px;
       padding: 15px;
       margin: auto;
+      position: relative;
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
     }
+
+    
   </style>
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
-
+  
+  <form class='signin' action='index.html' onsubmit="estorage()">
+    <img src="img/login.png" alt="" class='mb-4'>
+    <h5 class='mb-3'>Por favor introduzca sus datos</h1>
+    <label class='sr-only' for='inputEmail'>Email</label>
+    <input class='form-control email' id='inputEmail' type="email" placeholder="Email" required>
+    <label class='sr-only' for="inputPassword">Contrasenia</label>
+    <input class='form-control email pass' id='inputPassword' type="password" placeholder="Contrasenia" required>
+    <label for="">
+      <input type="checkbox" value="recordarme">
+      Recordarme
+    </label>
+    <button id='redirect' class='btn btn-lg btn-primary btn-block' type="submit">Entrar</button>
+  </form>
   <script src="js/init.js"></script>
-  <script src="js/login.js"></script>
+  <!--<script src="js/login.js"></script>-->
 </body>
 </html>
