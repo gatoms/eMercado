@@ -12,18 +12,6 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <script>
-    function estorage(){
-        let misDatos= {
-            dato1: document.getElementById('inputEmail').value,
-            dato2: document.getElementById('inputPassword').value
-        };
-
-        let elJson= JSON.stringify(misDatos);
-
-        localStorage.setItem('losDatos', elJson);
-    }
-  </script>
   <style>
     html, body{
       height: 100%;
@@ -93,6 +81,6 @@
     <button id='redirect' class='btn btn-lg btn-primary btn-block' type="submit">Entrar</button>
   </form>
   <script src="js/init.js"></script>
-  <!--<script src="js/login.js"></script>-->
+  <script src="js/login.js"></script>
 </body>
 </html>
