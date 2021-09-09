@@ -40,7 +40,7 @@ function mostrarLista(lista){
                 if(buscar==undefined || datos.name.toLowerCase().includes(buscar)){
                     contenido+=`
                     
-                    <div class='list-group-item list-group-item-action'>
+                    <div class='list-group-item list-group-item-action' onclick='window.location.href ="product-info.html"'>
                         <div class='row'>
                             <div class='col-3'>
                                 <img src='`+ datos.imgSrc +`' class='img-thumbnail'>
