@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     })).then(function(){
         mostrarInfo(info);
-    }).then(function(){
         mostrarComentarios(comentarios);
-    }); 
+    });
 });
