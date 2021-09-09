@@ -41,14 +41,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj){
         if (resultObj.status === 'ok'){
             info = resultObj.data;
+            mostrarInfo(info);
         }
     }).then(getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(obj){
         if (obj.status === 'ok'){
             comentarios = obj.data;
+            mostrarComentarios(comentarios);
         }
-    })).then(function(){
-        mostrarInfo(info);
-    }).then(function(){
-        mostrarComentarios(comentarios);
-    });
+    }));
 });
