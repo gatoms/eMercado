@@ -4,19 +4,49 @@
 var info = []
 var comentarios = []
 
+function displayImg(img){
+    document.getElementById('imgProd').setAttribute('src', info.images[img]);
+}
+
+function estrellas(index){
+    let puntaje = comentarios[index].score;
+    for (let i = 0; i < puntaje; i++) {
+        document.getElementById('estrellitas'+index).innerHTML += '<span class="fa fa-star checked"></span>';
+    }
+    for (let i = 0; i < (5-puntaje); i++) {
+        document.getElementById('estrellitas'+index).innerHTML += '<span class="fa fa-star"></span>'
+    }
+}
+
 function mostrarInfo(obj){
     let doc = document.getElementById('product-info-div');
     let infoProd =`
-        <div>
-            <p>` + obj.name + `
-            <p> `+ obj.description+ `
-            <p>` + obj.cost + ' ' + obj.currency + `
-            <p>` + obj.soldCount + `
-            <p>` + obj.category +`
+    <div class="col-md-11">
+        <div class='card mb-11 shadow-sm custom-card text-center'>
             <div>
-                <img src="`+obj.images[0]+`">
+                <img id='imgProd' class='bd-placeholder-img card-img-top' src="`+obj.images[0]+`">
             </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary" onclick='displayImg(0)'>1</button>
+                <button type="button" class="btn btn-secondary" onclick='displayImg(1)'>2</button>
+                <button type="button" class="btn btn-secondary" onclick='displayImg(2)'>3</button>
+                <button type="button" class="btn btn-secondary" onclick='displayImg(3)'>4</button>
+                <button type="button" class="btn btn-secondary" onclick='displayImg(4)'>5</button>
+            </div>
+            <br>
+            <h4>` + obj.name + ` </h4><br>
+            
+            <div class='cajaDescripcionProduct'>
+                <strong>Descripcion:</strong>
+                <p class='text-left font-weight-light'> `+ obj.description+ `
+            </div>
+            <br>
+            <p><strong>` + obj.cost + ' ' + obj.currency + `</strong>
+            <p>Unidades vendidas: ` + obj.soldCount + `
+            <p>Catgoria: ` + obj.category +`
+            
         </div>
+    </div>
     `
     doc.innerHTML += infoProd;
 }
@@ -26,14 +56,14 @@ function mostrarComentarios(array){
     for (let i = 0; i < array.length; i++) {
         const com = array[i];
         let coment = `
-            <div>
-                <strong>Usuario:` + com.user + `</strong>
+            <div  class='card mb-5 shadow-sm text-left'>
+                <strong  id='estrellitas`+i+`'> ` + com.user +` </strong>
                 <p>` + com.description + `
-                <p>Calificacion:` + com.score + `
-                <p>Fecha de publicacion:` + com.dateTime +`
+                <p>Fecha de publicacion: ` + com.dateTime +`
             </div>
         `
         doc.innerHTML += coment;
+        estrellas(i);
     }
 }
 
@@ -41,14 +71,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj){
         if (resultObj.status === 'ok'){
             info = resultObj.data;
+            mostrarInfo(info);
         }
     }).then(getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(obj){
         if (obj.status === 'ok'){
             comentarios = obj.data;
+            mostrarComentarios(comentarios);
         }
-    })).then(function(){
-        mostrarInfo(info);
-    }).then(function(){
-        mostrarComentarios(comentarios);
-    }); 
+    }));
 });
