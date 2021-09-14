@@ -30,6 +30,17 @@ function ordenarLista(orden, lista){
     return resultado;
 }
 
+/*Para hacer que la redireccion de la linea 45 se haga a un producto especifico:
+    Agregar un id al div que use algo especifico del objeto (como el datos.name) que al clickear el div devuelva ese valor
+    y lo guardamos en un local o session storage, eso lo usamos en el product-info para ver cual es el producto que hay que 
+    mostrar.
+*/
+
+function guardarId(ident){
+    sessionStorage.setItem('identificador', ident);
+    window.location.href ="product-info.html";
+}
+
 function mostrarLista(lista){
     let contenido='';
     for (let i = 0; i < lista.length; i++) {
@@ -40,7 +51,7 @@ function mostrarLista(lista){
                 if(buscar==undefined || datos.name.toLowerCase().includes(buscar)){
                     contenido+=`
                     
-                    <div class='list-group-item list-group-item-action' onclick='window.location.href ="product-info.html"'>
+                    <div id='` + datos.name + `' class='list-group-item list-group-item-action' onclick='guardarId(this.id)'>
                         <div class='row'>
                             <div class='col-3'>
                                 <img src='`+ datos.imgSrc +`' class='img-thumbnail'>

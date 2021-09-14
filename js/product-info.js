@@ -18,6 +18,10 @@ function estrellas(index){
     }
 }
 
+/*Para mostrar un producto especifico, agarrar el identificador guardado en session storage, y usarlo para saber que 
+producto hay que abrir.
+*/
+
 function mostrarInfo(obj){
     let doc = document.getElementById('product-info-div');
     let infoProd =`
@@ -57,9 +61,13 @@ function mostrarComentarios(array){
         const com = array[i];
         let coment = `
             <div  class='card mb-5 shadow-sm text-left'>
-                <strong  id='estrellitas`+i+`'> ` + com.user +` </strong>
-                <p>` + com.description + `
-                <p>Fecha de publicacion: ` + com.dateTime +`
+                <div class='m-2'>
+                    <strong class='ml-3'> ` + com.user +` </strong>
+                    <div id='estrellitas`+i+`' class='float-right mr-3'></div>
+                    <hr>
+                    <p>` + com.description + `
+                    <p class='font-weight-light'><small>Fecha de publicacion: ` + com.dateTime +`</small></p>
+                </div>
             </div>
         `
         doc.innerHTML += coment;
