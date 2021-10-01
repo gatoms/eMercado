@@ -44,7 +44,7 @@ function llamado(){
   if(localStorage.getItem('losDatos')){
     elJson=localStorage.getItem('losDatos');
     losDatos=JSON.parse(elJson);
-    document.getElementById('cabeza').innerHTML+='<a id="perfil" class="py-2 d-none d-md-inline-block blanco" href="my-profile.html">'+losDatos.dato1+'</a>' 
+    document.getElementById('cabeza').innerHTML+='<a id="perfil" href="my-profile.html">'+losDatos.dato1+'</a>' 
   }else{
     window.location.replace('login.html');
   };
@@ -63,3 +63,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     llamado()
   }
 });
+
+
+/* blanco d-none py-2 d-md-inline-block*/
