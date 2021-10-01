@@ -44,11 +44,16 @@ function llamado(){
   if(localStorage.getItem('losDatos')){
     elJson=localStorage.getItem('losDatos');
     losDatos=JSON.parse(elJson);
-    document.getElementById('cabeza').innerHTML+='<a id="perfil" class="py-2 d-none d-md-inline-block blanco" href="my-profile.html">Perfil: '+losDatos.dato1+'</a>' 
+    document.getElementById('cabeza').innerHTML+='<a id="perfil" class="py-2 d-none d-md-inline-block blanco" href="my-profile.html">'+losDatos.dato1+'</a>' 
   }else{
-    window.location.replace('login.html')
+    window.location.replace('login.html');
   };
 };
+
+function cerrarSesion(){
+  localStorage.removeItem('losDatos');
+  window.location.replace('login.html');
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

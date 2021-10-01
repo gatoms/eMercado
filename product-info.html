@@ -31,9 +31,37 @@
   <div id='product-info-div' class="container p-5">
     
   </div>
-  <div id="product-coment-div" class="container p-5">
+  <div id='coment-div' class="container p-5">
     <h5>Comentarios:</h5><br>
+    <div id="product-coment-div">
 
+    </div>
+  </div>
+  <div class="container p-5 mb-5 shadow-sm">
+    Deja tu Comentario!<br><br>
+    <div>
+      <textarea name="comentario" class="card mb-4 shadow-sm text-left" id="coment" cols="80" rows="5"></textarea>
+      <div class="puntuacion">
+        <input id="radio1" type="radio" name="estrellas" value="5" onclick="puntaje_comentario='5'"><!--
+        --><label for="radio1">★</label><!--
+        --><input id="radio2" type="radio" name="estrellas" value="4" onclick="puntaje_comentario='4'"><!--
+        --><label for="radio2">★</label><!--
+        --><input id="radio3" type="radio" name="estrellas" value="3" onclick="puntaje_comentario='3'"><!--
+        --><label for="radio3">★</label><!--
+        --><input id="radio4" type="radio" name="estrellas" value="2"onclick="puntaje_comentario='2'"><!--
+        --><label for="radio4">★</label><!--
+        --><input id="radio5" type="radio" name="estrellas" value="1" onclick="puntaje_comentario='1'" checked><!--
+        --><label for="radio5">★</label><br>
+      </div><br>
+      <button onclick="agregarComent()" class="btn btn-primary">Enviar comentario</button>
+    </div>
+  </div>
+  <div class='album py-5 bg-light'><h3 class="text-center">Productos relacionados</h3><br>
+    <div class='container'>
+      <div class="row" id='prodRel'>
+        
+      </div>
+    </div>
   </div>
   <footer class="text-muted">
     <div class="container">
