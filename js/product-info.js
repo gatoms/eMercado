@@ -7,9 +7,6 @@ var prod = []
 var puntaje_comentario = '1'
 var fecha = new Date()
 
-function displayImg(img){
-    document.getElementById('imgProd').setAttribute('src', info.images[img]);
-}
 
 function estrellas(index){
     let puntaje = comentarios[index].score;
@@ -45,15 +42,39 @@ function mostrarInfo(obj){
     let infoProd =`
     <div class="col-md-11">
         <div class='card mb-11 shadow-sm custom-card text-center'>
-            <div>
-                <img id='imgProd' class='bd-placeholder-img card-img-top' src="`+obj.images[0]+`">
-            </div>
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-secondary" onclick='displayImg(0)'>1</button>
-                <button type="button" class="btn btn-secondary" onclick='displayImg(1)'>2</button>
-                <button type="button" class="btn btn-secondary" onclick='displayImg(2)'>3</button>
-                <button type="button" class="btn btn-secondary" onclick='displayImg(3)'>4</button>
-                <button type="button" class="btn btn-secondary" onclick='displayImg(4)'>5</button>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="`+obj.images[0]+`" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="`+obj.images[1]+`" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="`+obj.images[2]+`" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="`+obj.images[3]+`" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="`+obj.images[4]+`" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
             <br>
             <h4>` + obj.name + ` </h4><br>
@@ -94,7 +115,6 @@ function mostrarComentarios(array){
 }
 function prodRelacionados(lista){
     let doc = document.getElementById('prodRel');
-    //let indice = idk.relatedProducts;
     const a = prod[lista];
     let relacionado = `
         <div class='col'>
@@ -128,22 +148,14 @@ document.addEventListener("DOMContentLoaded", function(e){
 });
 
 
-/*function prodRelacionados(lista, array){
-    let doc = document.getElementById('prodRel');
-    //let indice = idk.relatedProducts;
-    
-    for (let i = 0; i < lista.length; i++) {
-        let a = lista[i];
-        let relacionado = `
-            <div class='card mb-3 shadow-sm text-center'>
-                <img src='`+ a.imgSrc +`'>
-                <strong>`+ a.name +`</strong>
-                <p class='moneyy'>`+ a.cost + ' ' + a.currency +`
-            </div>
-        `
-        doc.innerHTML += relacionado;
-    }
-} */
+
+
+
+
+
+
+
+
 
 
 /*function prodRelacionados(lista, array){

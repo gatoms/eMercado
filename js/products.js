@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById('buscar').addEventListener('input', function(){
         buscar = document.getElementById('buscar').value;
-        mostrarLista(productos)
+        mostrarLista(productos);
     });
 
 
