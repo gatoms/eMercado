@@ -22,6 +22,7 @@ function borrarAgregar_div_comentarios(){
     document.getElementById('product-coment-div').remove();
     let divi = document.createElement('div');
     divi.id = 'product-coment-div';
+    divi.setAttribute('class', 'row');
     document.getElementById('coment-div').appendChild(divi);
 }
 
@@ -40,7 +41,8 @@ function agregarComent(){
 function mostrarInfo(obj){
     let doc = document.getElementById('product-info-div');
     let infoProd =`
-    <div class="col-md-11">
+    <div class="col-1"></div>
+    <div class="col-10">
         <div class='card mb-11 shadow-sm custom-card text-center'>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -90,6 +92,7 @@ function mostrarInfo(obj){
             
         </div>
     </div>
+    <div class="col-1"></div>
     `
     doc.innerHTML += infoProd;
 }
@@ -99,13 +102,15 @@ function mostrarComentarios(array){
     for (let i = 0; i < array.length; i++) {
         const com = array[i];
         let coment = `
-            <div  class='card mb-5 shadow-sm text-left'>
-                <div class='m-2'>
-                    <strong class='ml-3'> ` + com.user +` </strong>
-                    <div id='estrellitas`+i+`' class='float-right mr-3'></div>
-                    <hr>
-                    <p>` + com.description + `
-                    <p class='font-weight-light'><small>Fecha de publicacion: ` + com.dateTime +`</small></p>
+            <div class="col-12">
+                <div  class='card mb-5 shadow-sm text-left'>
+                    <div class='m-2'>
+                        <strong class='ml-3'> ` + com.user +` </strong>
+                        <div id='estrellitas`+i+`' class='float-right mr-3'></div>
+                        <hr>
+                        <p>` + com.description + `
+                        <p class='font-weight-light'><small>Fecha de publicacion: ` + com.dateTime +`</small></p>
+                    </div>
                 </div>
             </div>
         `

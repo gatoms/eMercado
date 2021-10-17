@@ -51,24 +51,144 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <h1 class="text-center">Mi Carrito</h1>
-    <div class="row">
-      <div id="listaProductos" class="col-sm-7 shadow p-3 mb-5 bg-white rounded border border border-secondary">
-        trolo
-      </div>
-      <div class="col-1">
-
-      </div>
-      <div class="col-sm-4 shadow p-3 mb-5 bg-white rounded border border-primary">
-        <h3 class="p-3 mb-2 bg-info text-white text-center">Resumen del pedido</h3>
-        <div class="m-2">
-          <h4 class='h3 font-weight-light'>Subtotal: <strong id="valor" class="text-danger"></strong></h4>
-          <h4 class="h3 font-weight-light">Envio: <strong id="envio"></strong></h4>
-          <hr>
-          <h4 class='h3 font-weight-light'>TOTAL: <strong id='total'></strong></h4>
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+      <h2>Mi Carrito</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div id="listaProductos" class="col-sm-7 shadow p-3 mb-5 bg-white rounded border border border-secondary"></div>
+        <div class="col-1"></div>
+        <div class="col-sm-4 shadow p-3 mb-5 bg-white rounded border border-primary">
+          <h3 class="p-3 mb-2 bg-info text-white text-center">Resumen del pedido</h3>
+          <div class="m-2">
+            <h4 class='h3 font-weight-light'>Subtotal: <strong id="valor" class="text-danger"></strong></h4>
+            <hr>
+            <h4 class="h3 font-weight-light">Envio: <strong id="envio"></strong></h4>
+            <div class="accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      Dirección
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne"">
+                  <!--Por aca iria un form para el envio y eso-->
+                  <div class="card-body">
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Pais</label>
+                      </div>
+                      <select class="custom-select" id="inputGroupSelect01">
+                        <option selected>Elija</option>
+                        <option value="1">Uruguay</option>
+                        <option value="2">Argentina</option>
+                        <option value="3">Brazil</option>
+                      </select>
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Calle</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Número</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Esquina</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Tipo de envío
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio1">Premium (2-5 días)<br><small>Costo del 15% sobre el subtotal.</small></label>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio2">Express (5-8 días)<br><small>Costo del 7% sobre el subtotal.</small></label>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                          <label class="custom-control-label" for="customRadio3">Standard (12 a 15 días)<br><small>Costo del 5% sobre el subtotal</small></label>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Forma de pago
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <!--De estos botones saldria un modal donde rellenas dependiendo de la opcion elegida-->
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option1" autocomplete="off"> Tarjeta de crédito
+                      </label>
+                      <label class="btn btn-secondary">
+                        <input type="radio" name="options" id="option2" autocomplete="off"> Transferencia bancaria
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <h4 class='h3 font-weight-light'>TOTAL: <strong id='total'></strong></h4>
+          </div>
+          <!--Este seria el boton para realizar la compra-->
+          <button type="button" class="btn btn-info btn-lg btn-block p-3" data-toggle="modal" data-target=".bd-example-modal-sm"><span class="text-center h3">Realizar pedido</span></button>
         </div>
       </div>
+    </div>
+    <!--Modal temporal con el exito de compra, se pondria desde JS igual-->
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <img src="img/tenor.gif" alt="">
+            <strong style="background-color: black; color:Tomato; text-align: center;">Grax por la compra bro</strong>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
   <footer class="text-muted bg-light"><!--El fixed-bottom tendria que ser temporal-->
@@ -80,14 +200,6 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

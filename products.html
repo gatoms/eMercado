@@ -33,22 +33,46 @@
         </div>
       </div>
     </nav>
-    <h2 class='text-center p-4'>Productos</h2>
-    <div class="text-center p-3">
-      <input type="text" id='buscar' placeholder="Buscar" class="btn btn-light">
-      <br><br>
-      <input type="number" placeholder="Precio minimo" id='min' class="btn btn-light">
-      <input type="number" placeholder="Precio maximo" id='max' class="btn btn-light">
-      <button id='filtrado' class="btn btn-light">Filtrar</button>
-      <button id="limpiar" class="btn btn-light">Limpiar Filtros</button>
-      <br><br>
-      <button id='mayMen' class="btn btn-light">Mayor a Menor</button>
-      <button id="menMay" class="btn btn-light">Menor a Mayor</button>
-      <button id='relevancia' class="btn btn-light">Relevancia</button>
-    </div>
-    <div id='prod' class='productitos'>
+    <main role="main" class="pb-5">
+      <div class="text-center p-4">
+        <h2>Productos</h2>
+        <p class="lead">Verás aquí todos los productos de Autos.</p>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col mb-4">
+            <div class="input-group">
+              <input type="number" placeholder="Precio maximo" id='max' class="form-control">
+              <input type="number" placeholder="Precio minimo" id='min' class="form-control">
+              <div class="input-group-append" id="button-addon4">
+                <button class="btn btn-outline-secondary" id='filtrado' type="button">Filtrar</button>
+                <button class="btn btn-outline-secondary" id="limpiar" type="button">Limpiar Filtros</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col text-left">
+            <input type="text" id='buscar' placeholder="Buscar" class="btn btn-light border">
+          </div>
+          <div class="col text-right">
+            <div class="btn-group border rounded" role="group" >
+              <button id='mayMen' class="btn btn-light"><i class="fas fa-sort-amount-down"></i>Mayor a Menor</button>
+              <button id="menMay" class="btn btn-light"><i class="fas fa-sort-amount-up"></i>Menor a Mayor</button>
+              <button id='relevancia' class="btn btn-light">Relevancia</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id='prod' class='cat-list-container'>
+          
+          </div>
+        </div>
+      </div>
+    </main>
+    
       
-    </div>
+      
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">
