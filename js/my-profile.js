@@ -8,14 +8,18 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         if(idk.nombre != undefined){
             document.getElementById('validationTooltip01').value = idk.nombre;
+            document.getElementById('namesito').innerHTML = idk.nombre;
         }
         if(idk.apellido != undefined){
             document.getElementById('validationTooltip02').value = idk.apellido;
+            document.getElementById('apellidito').innerHTML = idk.apellido;
         }
         if(idk.telefono != undefined){
             document.getElementById('validationTooltip03').value = idk.telefono;
+            document.getElementById('telefonito').innerHTML = idk.telefono;
         }
         document.getElementById('validationTooltipUsername').value = idk.dato1;
+        document.getElementById('emailsito').innerHTML = idk.dato1;
     };
 
     form = document.getElementById('formulario');

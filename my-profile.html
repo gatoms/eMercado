@@ -60,73 +60,121 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8 mb-4">
-          <!--<form class="needs-validation" id='formulario' novalidate>
-            <div class="form-row">
-              <div class="col-md-4 mb-3">
-                <label for="validationCustom01">First name</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="validationCustom02">Last name</label>
-                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="validationCustomUsername">Username</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+        <div class="col-1"></div>
+        <div class="col-3">
+          <img src="img/tenor.gif" class="img-fluid p-1 border border-dark rounded" id="fotoPerfil" alt="">
+        </div>
+        <div class="col-5 mb-4">
+          <h3>Nombre: <span id="namesito"></span> <span id="apellidito"></span></h3>
+          <h3>Telefono: <span id="telefonito"></span></h3>
+          <h3>Email: <span id="emailsito"></span></h3>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formularioPerfilModal">
+            Modificar informacion
+          </button>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+    <div>
+      <div class="modal fade" id="formularioPerfilModal" tabindex="-1" role="dialog" aria-labelledby="formularioPerfilModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="formularioPerfilModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="needs-validation" id="formulario" novalidate>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label for="validationTooltip01">Nombre</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" required>
+                    <div class="valid-tooltip">
+                      Bien!
+                    </div>
+                    <div class="invalid-tooltip">
+                      Introduzca un nombre valido.
+                    </div>
                   </div>
-                  <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                  <div class="invalid-feedback">
-                    Please choose a username.
+                  <div class="col-md-6 mb-3">
+                    <label for="validationTooltip02">Apellido</label>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" required>
+                    <div class="valid-tooltip">
+                      Bien!
+                    </div>
+                    <div class="invalid-tooltip">
+                      Introduzca un apellido valido.
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label for="validationTooltipUsername">Email</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                      </div>
+                      <input type="email" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                      <div class="invalid-tooltip">
+                        Introduzca un mail valido.
+                      </div>
+                      <div class="valid-tooltip">
+                        Bien!
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationTooltip03">Numero de telefono celular</label>
+                    <input type="number" class="form-control" id="validationTooltip03" placeholder="Numero" minlength="9" required>
+                    <div class="valid-tooltip">
+                      Bien!
+                    </div>
+                    <div class="invalid-tooltip">
+                      Introduzca un numero valido
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button class="btn btn-primary" type="submit">Actualizar informacion</button>
+                </div>
+              </form>
             </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationCustom03">City</label>
-                <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                <div class="invalid-feedback">
-                  Please provide a valid city.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="validationCustom04">State</label>
-                <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="validationCustom05">Zip</label>
-                <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                <div class="invalid-feedback">
-                  Please provide a valid zip.
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                  Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Submit form</button>
-          </form>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div class="alert fade alert-success" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/my-profile.js"></script>
+</body>
+<!--
+  
           <form class="needs-validation" id="formulario" novalidate>
             <div class="form-row">
               <div class="col-md-6 mb-3">
@@ -179,93 +227,6 @@
             </div>
             <button class="btn btn-primary" type="submit">Actualizar informacion</button>
           </form>
-        </div>
-        <div class="col-2"></div>
-      </div>
-    </div>
-  </main>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/my-profile.js"></script>
-</body>
 
-
-<!--
-  <form class="needs-validation" novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltip01">First name</label>
-      <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
-      <div class="valid-tooltip">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltip02">Last name</label>
-      <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
-      <div class="valid-tooltip">
-        Looks good!
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationTooltipUsername">Username</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-        </div>
-        <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-        <div class="invalid-tooltip">
-          Please choose a unique and valid username.
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip03">City</label>
-      <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
-      <div class="invalid-tooltip">
-        Please provide a valid city.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltip04">State</label>
-      <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
-      <div class="invalid-tooltip">
-        Please provide a valid state.
-      </div>
-    </div>
-    <div class="col-md-3 mb-3">
-      <label for="validationTooltip05">Zip</label>
-      <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
-      <div class="invalid-tooltip">
-        Please provide a valid zip.
-      </div>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</form>
 -->
 </html>
