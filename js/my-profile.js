@@ -1,7 +1,38 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+function constructorFoto(){
+    let file = document.getElementById('customFileLangHTML').files[0];
+    let avatar = document.getElementById('fotoPerfil');
+    let reader = new FileReader();
+
+    reader.onload = function(){
+        avatar.src = reader.result;
+    }
+
+    if(file){
+        reader.readAsDataURL(file);
+    }else{
+        preview.src = 'img/tenor.gif';
+    }
+}
+
+function guardarFotoPerfil(){
+    let preview = document.getElementById('fotoPerfil');
+
+    localStorage.setItem('fotoPerfil', JSON.stringify(preview.src));
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
+    let foto = JSON.parse(localStorage.getItem('fotoPerfil'));
+    let preview = document.getElementById('fotoPerfil');
+
+    if(foto != null){
+        preview.src = foto;
+    }else{
+        preview.src = "img/tenor.gif"
+    }
+    
     if(localStorage.getItem('losDatos')){
         preDato=localStorage.getItem('losDatos');
         idk=JSON.parse(preDato);
@@ -33,7 +64,10 @@ document.addEventListener("DOMContentLoaded", function(e){
             localStorage.getItem('losDatos');
             preDato=localStorage.getItem('losDatos');
             idk=JSON.parse(preDato);
-                
+            
+            //Imagen (desafio)
+            guardarFotoPerfil();
+
             //guardado de los nuevos datos
             let info = {
                 nombre: document.getElementById('validationTooltip01').value,

@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -35,16 +35,27 @@
 
 <body>
   <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-content-center">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown">
+      <div class="dropdown d-md-none d-inline-block">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownChiquito" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Navegar
+        </a>
+      
+        <div class="dropdown-menu" aria-labelledby="dropdownChiquito">
+          <a class="dropdown-item" href="index.html">Inicio</a>
+          <a class="dropdown-item" href="categories.html">Categorías</a>
+          <a class="dropdown-item" href="products.html">Productos</a>
+          <a class="dropdown-item" href="sell.html">Vender</a>
+        </div>
+      </div>
+      <div class="dropdown d-inline-block">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Perfil
         </a>
-      
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a class="dropdown-item" href="cart.html">Mi carrito</a>
           <a class="dropdown-item" href="#" id='cabeza'></a>
@@ -59,20 +70,30 @@
       <p class="lead">Aqui podras modificar datos personales de tu perfil.</p>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-1"></div>
-        <div class="col-3">
-          <img src="img/tenor.gif" class="img-fluid p-1 border border-dark rounded" id="fotoPerfil" alt="">
+      <div class="row border">
+        <div class="col-md-1"></div>
+        <div class="col-12 col-md-5 mt-4 text-center">
+          <img src="" class="img-fluid p-1 border border-dark rounded" id="fotoPerfil" alt="">
+          <br><br>
+          
         </div>
-        <div class="col-5 mb-4">
-          <h3>Nombre: <span id="namesito"></span> <span id="apellidito"></span></h3>
-          <h3>Telefono: <span id="telefonito"></span></h3>
-          <h3>Email: <span id="emailsito"></span></h3>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formularioPerfilModal">
-            Modificar informacion
+        <div class="col-12 col-md-5 mt-4 mb-4 overflow-auto">
+          <h4 class="mb-2 font-weight-light">Nombre: </h4>
+          <span class='font-weight-bold h3' id="namesito"></span>  <span class='font-weight-bold h3' id="apellidito"></span>
+          <hr>
+          <h4 class="mb-2 font-weight-light">Telefono: </h4>
+          <span class='font-weight-bold h3' id="telefonito"></span>
+          <hr>
+          <h4 class="mb-2 font-weight-light">Email: </h4>
+          <span class='font-weight-bold h3' id="emailsito"></span>
+          <hr>
+          
+        </div>
+        <div class="col-md-1 text-center">
+          <button type="button" class="btn btn-primary btn-lg m-2" data-toggle="modal" data-target="#formularioPerfilModal">
+            <i class="fas fa-user-edit"></i>
           </button>
         </div>
-        <div class="col-1"></div>
       </div>
     </div>
     <div>
@@ -133,6 +154,15 @@
                     </div>
                     <div class="invalid-tooltip">
                       Introduzca un numero valido
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <hr>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFileLangHTML" onchange="constructorFoto()">
+                      <label class="custom-file-label" for="customFileLangHTML" data-browse="Buscar">Seleccione una foto (Opcional)</label>
                     </div>
                   </div>
                 </div>
