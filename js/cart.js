@@ -5,6 +5,7 @@ const CART_DESAFIO = "https://japdevdep.github.io/ecommerce-api/cart/654.json"; 
 var info = [];
 var exito = [];
 
+//Funcion para borrar un articulo
 function killDiv(id){ 
     document.getElementById('cantidad'+id).value = 0;
     resumenTotal(info);
@@ -17,7 +18,7 @@ function mostrarInfo(array){
     let prod = '';
     for (let i = 0; i < array.articles.length; i++) {
         const a = array.articles[i];
-        let xd = (a.unitCost * a.count)
+        let sub = (a.unitCost * a.count)
         prod +=`
         <div class='row' id='div`+i+`'>
             <div class='col-3'>
@@ -36,7 +37,7 @@ function mostrarInfo(array){
                         <p>Precio: <strong class="h4 text-success">`+a.unitCost +`<small> `+a.currency+`</small></strong></p>
                     </div>
                     <div class='col-6'> 
-                        <p>Subtotal: <strong class="h4 text-success mostrarInfo"><span id="sub`+i+`">`+ xd +`</span><small> `+a.currency+`</small></strong></p>
+                        <p>Subtotal: <strong class="h4 text-success mostrarInfo"><span id="sub`+i+`">`+ sub +`</span><small> `+a.currency+`</small></strong></p>
                     </div>
                     <div class='col-12'>
                         <div class="input-group mb-3">
@@ -72,11 +73,6 @@ function cuentas(i, valor){
     document.getElementById('valor').innerHTML = valor;
 }*/
 
-/*armar un dropdown con input group que sea la misma barra para poner la direccion, calle, etc*/
-//Esto hacerlo para que sea por id en ves de por un array supongo
-//lo de arriba se podria hacer directamente en la funcion de mostrarInfo()
-//Acordate de usar Math.round para que no muestre decimales
-//podria usar un atributo "onchange" en html para que se cambie dinamicamente
 function resumenTotal(array){
     let doc = document.getElementById('valor');
     let env = document.getElementById('envio');
@@ -112,10 +108,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (obj.status === 'ok'){
             exito = obj.data;
         }
-    }))/*.then(getJSONData(CART_DESAFIO).then(function(resObj){
-        if(resObj.status === 'ok'){
-            //Agregar aca lo que necesite DESAFIO
-        }CART_INFO_URL
-    }))*/;
+    }));
 });
 
