@@ -65,108 +65,120 @@
             <h4 class='h3 font-weight-light'>Subtotal: <strong id="valor" class="text-danger"></strong></h4>
             <hr>
             <h4 class="h3 font-weight-light">Envio: <strong id="envio"></strong></h4>
-            <!--Acordion para el envio, direccion y metodo de pago-->
-            <div class="accordion" id="accordionExample">
-              <div class="card">
-                <div class="card-header" id="headingOne">
-                  <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      Dirección
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
-                  <!--Por aca iria un form para el envio y eso-->
-                  <div class="card-body">
-                    <!--Adentro de cada cardbody iria un form peque;o, mirar cart.js-->
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Pais</label>
-                      </div>
-                      <select class="custom-select" id="inputGroupSelect01">
-                        <option selected>Elija</option>
-                        <option value="1">Uruguay</option>
-                        <option value="2">Argentina</option>
-                        <option value="3">Brazil</option>
-                      </select>
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Calle</span>
-                      </div>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Número</span>
-                      </div>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Esquina</span>
-                      </div>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            
+            
+            
+            <!--Acordion con forms adentro (la idea son varios forms adentro de cada collapse del acordion)-->
+            <form class="needs-validation" novalidate>
+              <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Dirección
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-row">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <select class="custom-select" required>
+                                <option value="">Seleccione un pais</option>
+                                <option value="1">Uruguay</option>
+                                <option value="2">Argentina</option>
+                                <option value="3">Brazil</option>
+                              </select>
+                              <div class="invalid-feedback">Elija un pais</div>
+                            </div>
+                          </div>
+                          <div class="col-12 mb-3">
+                            <input type="text" class="form-control" id="validacion1" placeholder="Calle" value="" required>
+                            <div class="valid-feedback">
+                              Genial!
+                            </div>
+                            <div class="invalid-feedback">
+                              Por favor introduzca una calle.
+                            </div>
+                          </div>
+                          <div class="col-12 mb-3">
+                            <input type="text" class="form-control" id="validacion2" placeholder="Numero" value="" required>
+                            <div class="valid-feedback">
+                              Genial!
+                            </div>
+                            <div class="invalid-feedback">
+                              Por favor introduzca el numero de direccion. 
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <input type="text" class="form-control" id="validacion3" placeholder="Esquina" value="" required>
+                            <div class="valid-feedback">
+                              Genial!
+                            </div>
+                            <div class="invalid-feedback">
+                              Por favor introduzca una esquina.
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingTwo">
-                  <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Tipo de envío
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                  <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item">
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="envioPremium" name="customRadio" class="custom-control-input">
+                
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Tipo de envío
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="custom-control custom-radio mb-3">
+                          <input type="radio" class="custom-control-input" id="envioPremium" name="radio-stacked" required>
                           <label class="custom-control-label" for="envioPremium">Premium (2-5 días)<br><small>Costo del 15% sobre el subtotal.</small></label>
                         </div>
-                      </li>
-                      <li class="list-group-item">
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="envioExpress" name="customRadio" class="custom-control-input">
+                        <div class="custom-control custom-radio mb-3">
+                          <input type="radio" class="custom-control-input" id="envioExpress" name="radio-stacked" required>
                           <label class="custom-control-label" for="envioExpress">Express (5-8 días)<br><small>Costo del 7% sobre el subtotal.</small></label>
                         </div>
-                      </li>
-                      <li class="list-group-item">
-                        <div class="custom-control custom-radio">
-                          <input type="radio" id="envioStandard" name="customRadio" class="custom-control-input">
+                        <div class="custom-control custom-radio mb-3">
+                          <input type="radio" class="custom-control-input" id="envioStandard" name="radio-stacked" required>
                           <label class="custom-control-label" for="envioStandard">Standard (12 a 15 días)<br><small>Costo del 5% sobre el subtotal</small></label>
+                          <div class="invalid-feedback">Seleccione un envio.</div>
                         </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-header" id="headingThree">
-                  <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Forma de pago
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                  <div class="card-body">
-                    <!--De estos botones saldria un modal donde rellenas dependiendo de la opcion elegida-->
-                    <div class="btn-group">
-                      <button type="button" id="option1" class="btn btn-info" data-toggle="modal" data-target="#metodoTarjeta">Tarjeta de crédito</button>
-                      <button type="button" id="option2" class="btn btn-info" data-toggle="modal" data-target="#metodoTransferenciaBancaria">Transferencia bancaria</button>
                     </div>
                   </div>
                 </div>
-            </div>
+  
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Forma de pago
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <div class="btn-group">
+                        <button type="button" id="option1" class="btn btn-info" data-toggle="modal" data-target="#metodoTarjeta">Tarjeta de crédito</button>
+                        <button type="button" id="option2" class="btn btn-info" data-toggle="modal" data-target="#metodoTransferenciaBancaria">Transferencia bancaria</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
             <hr>
             <h4 class='h3 font-weight-light'>TOTAL: <strong id='total'></strong></h4>
+            <button class="btn btn-info btn-lg btn-block p-3" type="submit"><span class="text-center h3">Realizar pedido</span></button>
+          </form>
           </div>
-          <!--Este seria el boton para realizar la compra-->
-          <button type="button" class="btn btn-info btn-lg btn-block p-3" data-toggle="modal" data-target=".bd-example-modal-sm"><span class="text-center h3">Realizar pedido</span></button>
+          <!--Este seria el boton para realizar la compra
+          <button type="submit" onclick="validacion()" class="btn btn-info btn-lg btn-block p-3" data-toggle="modal" data-target=".bd-example-modal-sm"><span class="text-center h3">Realizar pedido</span></button>
+          -->
         </div>
       </div>
     </div>
@@ -193,12 +205,11 @@
           </div>
           <div class="modal-body">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Numero de cuenta" aria-label="numCuenta" aria-describedby="basic-addon1">
+              <input type="number" id="transInfo" class="form-control" placeholder="Numero de cuenta" aria-label="numCuenta" aria-describedby="basic-addon1">
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Confirmar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </div>
       </div>
@@ -215,16 +226,15 @@
             </div>
             <div class="modal-body">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Numero de tarjeta" aria-label="numTarj" aria-describedby="basic-addon1">
+                <input type="number" id="numeroTarj" class="form-control" placeholder="Numero de tarjeta" aria-label="numTarj" aria-describedby="basic-addon1">
               </div>
               <div class="input-group input-group-sm mb-3">
-                <input type="text" placeholder="Vencimiento" aria-label="venc" class="form-control">
-                <input type="text" placeholder="Codigo de seguridad" aria-label="codigoSeg" class="form-control">
+                <input type="date" id="vencTarj" placeholder="Vencimiento" aria-label="venc" class="form-control">
+                <input type="number" id="segCode" placeholder="Codigo de seguridad" aria-label="codigoSeg" class="form-control">
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Confirmar</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             </div>
           </div>
         </div>

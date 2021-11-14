@@ -67,6 +67,8 @@ function mostrarLista(lista){
                         </div>
                     </div>
                 `  
+               
+
                 }
         }
     }

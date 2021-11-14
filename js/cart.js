@@ -108,18 +108,54 @@ Lo otro que puedo hacer, es cambiar el realizar pedido (button) y que este en el
 campos de direccion y eso cuando se aprete el boton de forma de pago, y que solo se pueda abrir si se validan.
 es otra opcion.
 */
+
 function validacion(){
-    var forms = document.querySelectorAll('.needs-validation');
-    // Loop over them and prevent submission
-    Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
+    let tarjNum = document.getElementById('numeroTarj');
+    let tarjVenc = document.getElementById('vencTarj');
+    let tarjCod = document.getElementById('segCode');
+    let transferencia = document.getElementById('transInfo');
+    let banderitaTarj = true;
+    let banderitaTrans = true;
+
+    if(tarjNum.value != "" ||tarjNum.value === undefined){
+        tarjNum.classList.remove('is-invalid');
+        tarjNum.classList.add('is-valid');
+    }else{
+        banderitaTarj = false;
+        tarjNum.classList.remove('is-valid');
+        tarjNum.classList.add('is-invalid');
+    }
+
+    if(tarjVenc.value != "" || tarjVenc.value === undefined){
+        tarjVenc.classList.remove('is-invalid');
+        tarjVenc.classList.add('is-valid');
+    }else{
+        banderitaTarj = false;
+        tarjVenc.classList.remove('is-valid');
+        tarjVenc.classList.add('is-invalid');
+    }
+
+    if(tarjCod.value != "" || tarjCod.value === undefined){
+        tarjCod.classList.remove('is-invalid');
+        tarjCod.classList.add('is-valid');
+    }else{
+        banderitaTarj = false;
+        tarjCod.classList.remove('is-valid');
+        tarjCod.classList.add('is-invalid');
+    }
+
+    if(transferencia.value != "" || transferencia.value === undefined){
+        transferencia.classList.remove('is-invalid');
+        transferencia.classList.add('is-valid');
+    }else{
+        banderitaTrans = false;
+        transferencia.classList.remove('is-valid');
+        transferencia.classList.add('is-invalid');
+    }
+
+    if(banderitaTarj || banderitaTrans){
+        return true;
+    }
 }
 
 
@@ -146,6 +182,34 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     document.getElementById('envioStandard').addEventListener('click', function(){
         resumenTotal(info, 5);
+    });
+
+    document.getElementById('transInfo').addEventListener('input', function(){
+        validacion();
+    });
+
+    document.getElementById('numeroTarj').addEventListener('input', function(){
+        validacion();
+    });
+
+    document.getElementById('vencTarj').addEventListener('input', function(){
+        validacion();
+    });
+
+    document.getElementById('segCode').addEventListener('input', function(){
+        validacion();
+    });
+
+    var forms = document.querySelectorAll('.needs-validation');
+    // Loop over them and prevent submission
+    Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity() || !validacion()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
     });
 });
 
