@@ -8,7 +8,7 @@ var exito = [];
 //Funcion para borrar un articulo
 function killDiv(id){ 
     document.getElementById('cantidad'+id).value = 0;
-    resumenTotal(info);
+    resumenTotal(info, 0);
     document.getElementById('div'+id).setAttribute('class', 'd-none');
 }
 
@@ -60,7 +60,7 @@ function cuentas(i, valor){
     let cant = document.getElementById('cantidad'+i).value;
     let sub = (cant * valor);
     document.getElementById('sub'+i).innerHTML = sub;
-    resumenTotal(info);
+    resumenTotal(info, 0);
 }
 
 /*function total(){
@@ -73,7 +73,7 @@ function cuentas(i, valor){
     document.getElementById('valor').innerHTML = valor;
 }*/
 
-function resumenTotal(array){
+function resumenTotal(array, porc){
     let doc = document.getElementById('valor');
     let env = document.getElementById('envio');
     let subtotal = 0;
@@ -89,11 +89,37 @@ function resumenTotal(array){
             valor = a.unitCost;
         }
         subtotal = Math.round((valor * b) + subtotal);
+        envio = Math.round((subtotal * porc)/100)
         total = envio + subtotal;
     }
-    doc.innerHTML = total + ' USD';
+    doc.innerHTML = subtotal + ' USD';
     env.innerHTML = envio + ' USD';
     document.getElementById('total').innerHTML = total + ' USD';
+}
+
+
+/*Hay que complicarla un poco, El boton de submit tiene que ser el de afuera (realizar compra) que revise los forms
+del acordion (podria poner mini forms adentro de cada acordion para que funcione el acordion)
+Despues otro form aparte en los modales, que son dos (uno para que metodo de pago) pero solo hay que validar uno.
+idk que hacer ahi, supongo que hago una funcion de validacion que con uno de esos forms validado ya alcance
+medio largo esto pero bue, algo asi podria funcar. Para conservar el acordion, si no hacer un form simple.
+
+Lo otro que puedo hacer, es cambiar el realizar pedido (button) y que este en el modal, habria que validar los\
+campos de direccion y eso cuando se aprete el boton de forma de pago, y que solo se pueda abrir si se validan.
+es otra opcion.
+*/
+function validacion(){
+    var forms = document.querySelectorAll('.needs-validation');
+    // Loop over them and prevent submission
+    Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
 }
 
 
@@ -102,12 +128,24 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === 'ok'){
             info = resultObj.data;
             mostrarInfo(info);
-            resumenTotal(info);
+            resumenTotal(info, 0);
         }
     }).then(getJSONData(CART_BUY_URL).then(function(obj){
         if (obj.status === 'ok'){
             exito = obj.data;
         }
     }));
+
+    document.getElementById('envioPremium').addEventListener('click', function(){
+        resumenTotal(info, 15);
+    });
+
+    document.getElementById('envioExpress').addEventListener('click', function(){
+        resumenTotal(info, 7);
+    });
+
+    document.getElementById('envioStandard').addEventListener('click', function(){
+        resumenTotal(info, 5);
+    });
 });
 

@@ -1,6 +1,8 @@
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
+
+//Construye la foto para el desafio
 function constructorFoto(){
     let file = document.getElementById('customFileLangHTML').files[0];
     let avatar = document.getElementById('fotoPerfil');
@@ -17,13 +19,16 @@ function constructorFoto(){
     }
 }
 
+//Guarda la foto en un local storage
 function guardarFotoPerfil(){
     let preview = document.getElementById('fotoPerfil');
 
     localStorage.setItem('fotoPerfil', JSON.stringify(preview.src));
 }
 
+//Dom content loaded para todo lo que necesitemos al entrar al sitio
 document.addEventListener("DOMContentLoaded", function(e){
+    //Mas cosas para la foto (corrobora si hay una foto guardada en el local storage, de no haberla, devuelve una foto por predeterminado)
     let foto = JSON.parse(localStorage.getItem('fotoPerfil'));
     let preview = document.getElementById('fotoPerfil');
 
@@ -33,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         preview.src = "img/tenor.gif"
     }
     
+    //Para el perfil, corrobora si hay datos ya guardados (el mail y contrase;a) y en caso de ya haber datos como el nombre,etc reyenara los campos como sea debido
     if(localStorage.getItem('losDatos')){
         preDato=localStorage.getItem('losDatos');
         idk=JSON.parse(preDato);
@@ -53,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         document.getElementById('emailsito').innerHTML = idk.dato1;
     };
 
+    //Funcion de validacion bootstrap para el formulario
     form = document.getElementById('formulario');
 
     form.addEventListener('submit', function(event) {
@@ -60,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function(e){
           event.preventDefault();
           event.stopPropagation();
         }else{
+            //Codigo para que se debe hacer si se valida el formulario
             //llamado a los datos ya guardados para conservar la contrase;a
             localStorage.getItem('losDatos');
             preDato=localStorage.getItem('losDatos');

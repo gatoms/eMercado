@@ -70,12 +70,10 @@
       <p class="lead">Aqui podras modificar datos personales de tu perfil.</p>
     </div>
     <div class="container">
-      <div class="row border">
+      <div class="row border"><!--Imagen del perfil y datos personales (empiezan vacios excepto por el mail)-->
         <div class="col-md-1"></div>
-        <div class="col-12 col-md-5 mt-4 text-center">
+        <div class="col-12 col-md-5 mt-4 mb-4 text-center">
           <img src="" class="img-fluid p-1 border border-dark rounded" id="fotoPerfil" alt="">
-          <br><br>
-          
         </div>
         <div class="col-12 col-md-5 mt-4 mb-4 overflow-auto">
           <h4 class="mb-2 font-weight-light">Nombre: </h4>
@@ -87,21 +85,20 @@
           <h4 class="mb-2 font-weight-light">Email: </h4>
           <span class='font-weight-bold h3' id="emailsito"></span>
           <hr>
-          
         </div>
         <div class="col-md-1 text-center">
           <button type="button" class="btn btn-primary btn-lg m-2" data-toggle="modal" data-target="#formularioPerfilModal">
             <i class="fas fa-user-edit"></i>
-          </button>
+          </button><!--Boton con el icono para modificar el perfil-->
         </div>
       </div>
     </div>
-    <div>
+    <div><!--Modal con el formulario para editar el perfil-->
       <div class="modal fade" id="formularioPerfilModal" tabindex="-1" role="dialog" aria-labelledby="formularioPerfilModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="formularioPerfilModalLabel">Modal title</h5>
+            <div class="modal-header"><!--Titulo del modal-->
+              <h5 class="modal-title" id="formularioPerfilModalLabel">Actualiar su informacion del perfil.</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -109,7 +106,7 @@
             <div class="modal-body">
               <form class="needs-validation" id="formulario" novalidate>
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-6 mb-3"><!--Input para el nombre-->
                     <label for="validationTooltip01">Nombre</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" required>
                     <div class="valid-tooltip">
@@ -119,7 +116,7 @@
                       Introduzca un nombre valido.
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-6 mb-3"><!--Input para el apellido-->
                     <label for="validationTooltip02">Apellido</label>
                     <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" required>
                     <div class="valid-tooltip">
@@ -131,7 +128,7 @@
                   </div>
                 </div>
                 <div class="form-row">
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-6 mb-3"><!--Input para el mail-->
                     <label for="validationTooltipUsername">Email</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
@@ -146,7 +143,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
+                  <div class="col-md-6 mb-3"><!--Input para el telefono-->
                     <label for="validationTooltip03">Numero de telefono celular</label>
                     <input type="number" class="form-control" id="validationTooltip03" placeholder="Numero" minlength="9" required>
                     <div class="valid-tooltip">
@@ -159,7 +156,7 @@
                   <div class="col-12">
                     <hr>
                   </div>
-                  <div class="col-md-12 mb-3">
+                  <div class="col-md-12 mb-3"><!--Input para la foto del perfil (no es requerido este campo)-->
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="customFileLangHTML" onchange="constructorFoto()">
                       <label class="custom-file-label" for="customFileLangHTML" data-browse="Buscar">Seleccione una foto (Opcional)</label>
@@ -167,8 +164,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button class="btn btn-primary" type="submit">Actualizar informacion</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><!--Cierra modal sin actualizar informacion-->
+                  <button class="btn btn-primary" type="submit">Actualizar informacion</button><!--Verifica los campos, los  valida y manda el form-->
                 </div>
               </form>
             </div>
@@ -203,60 +200,5 @@
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
 </body>
-<!--
-  
-          <form class="needs-validation" id="formulario" novalidate>
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationTooltip01">Nombre</label>
-                <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" required>
-                <div class="valid-tooltip">
-                  Bien!
-                </div>
-                <div class="invalid-tooltip">
-                  Introduzca un nombre valido.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="validationTooltip02">Apellido</label>
-                <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" required>
-                <div class="valid-tooltip">
-                  Bien!
-                </div>
-                <div class="invalid-tooltip">
-                  Introduzca un apellido valido.
-                </div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationTooltipUsername">Email</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
-                  </div>
-                  <input type="email" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                  <div class="invalid-tooltip">
-                    Introduzca un mail valido.
-                  </div>
-                  <div class="valid-tooltip">
-                    Bien!
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="validationTooltip03">Numero de telefono celular</label>
-                <input type="number" class="form-control" id="validationTooltip03" placeholder="Numero" minlength="9" required>
-                <div class="valid-tooltip">
-                  Bien!
-                </div>
-                <div class="invalid-tooltip">
-                  Introduzca un numero valido
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-primary" type="submit">Actualizar informacion</button>
-          </form>
 
--->
 </html>
